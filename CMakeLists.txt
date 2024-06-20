@@ -10,7 +10,16 @@ FetchContent_Declare(SFML
         GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(Combat-like-game src/main.cpp)
+add_executable(Combat-like-game src/main.cpp
+        src/GameEngine.h
+        src/GameEngine.cpp
+        src/States/State.h
+        src/States/State.cpp
+        src/States/GameState.h
+        src/States/GameState.cpp
+        src/States/MenuState.h
+        src/States/MenuState.cpp
+                                )
 target_link_libraries(Combat-like-game PRIVATE sfml-graphics)
 target_compile_features(Combat-like-game PRIVATE cxx_std_17)
 
