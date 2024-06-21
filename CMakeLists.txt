@@ -1,5 +1,7 @@
-cmake_minimum_required(VERSION 3.16)
-project(Combat-like-game LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.22)
+project(Combat-like-game)
+
+set(CMAKE_CXX_STANDARD 20)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
@@ -10,15 +12,15 @@ FetchContent_Declare(SFML
         GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(Combat-like-game src/main.cpp
-        src/GameEngine.h
-        src/GameEngine.cpp
-        src/States/State.h
-        src/States/State.cpp
-        src/States/GameState.h
-        src/States/GameState.cpp
-        src/States/MenuState.h
-        src/States/MenuState.cpp
+add_executable(Combat-like-game main.cpp
+        GameEngine.cpp
+        GameEngine.hpp
+        States/State.cpp
+        States/State.hpp
+        States/GameState.cpp
+        States/GameState.hpp
+        States/MenuState.cpp
+        States/MenuState.hpp
                                 )
 target_link_libraries(Combat-like-game PRIVATE sfml-graphics)
 target_compile_features(Combat-like-game PRIVATE cxx_std_17)

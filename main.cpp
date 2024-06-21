@@ -1,11 +1,12 @@
 #include <SFML/Graphics.hpp>
-#include "GameEngine.h"
+#include "GameEngine.hpp"
 
 int main()
 {
 
+    GameEngine eng = GameEngine(new MenuState());
 
-    GameEngine(MenuState());
+    eng.RequestA();
     // auto window = sf::RenderWindow{ { 1920u, 1080u }, "CMake SFML Project" };
     // window.setFramerateLimit(144);
     //
