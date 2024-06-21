@@ -11,8 +11,14 @@
 #include "States/GameState.hpp"
 #include "States/MenuState.hpp"
 
+
 class GameEngine {
     State *state_;
+    sf::RenderWindow* window;
+    sf::Event event;
+    float dt;
+    sf::Clock dtClock;
+    void initWindow();
 
 public:
     GameEngine(State *state);
@@ -22,6 +28,9 @@ public:
 
     void RequestA();
     void RequestB();
+    void update();
+    void render();
+    void run();
 
 };
 

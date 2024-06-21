@@ -11,3 +11,12 @@ void GameState::DoWorkA() {
 void GameState::DoWorkB() {
     std::cout << "Doing work B" << std::endl;
 }
+
+void GameState::update(const float &dt) {
+}
+
+void GameState::endState() {
+}
+
+void GameState::render(sf::RenderTarget *target) {
+}

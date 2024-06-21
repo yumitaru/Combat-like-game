@@ -11,3 +11,12 @@ void MenuState::DoWorkA() {
 void MenuState::DoWorkB() {
     std::cout << "Doing work B" << std::endl;
 }
+
+void MenuState::update(const float &dt) {
+}
+
+void MenuState::endState() {
+}
+
+void MenuState::render(sf::RenderTarget *target) {
+}
