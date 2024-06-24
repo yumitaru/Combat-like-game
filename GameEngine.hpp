@@ -8,14 +8,15 @@
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
 #include "States/State.hpp"
+#include "Graphics/Window.hpp"
 #include "States/GameState.hpp"
 #include "States/MenuState.hpp"
 
 
 class GameEngine {
     State *state_;
-    sf::RenderWindow* window;
-    sf::Event event;
+    Window window;
+
     float dt;
     sf::Clock dtClock;
     void initWindow();

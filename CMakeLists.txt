@@ -15,6 +15,8 @@ FetchContent_MakeAvailable(SFML)
 add_executable(Combat-like-game main.cpp
         GameEngine.cpp
         GameEngine.hpp
+        Graphics/Window.cpp
+        Graphics/Window.hpp
         States/State.cpp
         States/State.hpp
         States/GameState.cpp

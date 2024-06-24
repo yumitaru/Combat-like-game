@@ -6,8 +6,9 @@
 
 
 void GameEngine::initWindow() {
-    this->window = new sf::RenderWindow{ { 1024u, 800u }, "Combat" };
-    window->setFramerateLimit(60);
+    // this->window = new sf::RenderWindow{ { 1024u, 800u }, "Combat" };
+    // window->setFramerateLimit(60);
+    window = Window();
     //
     // while (window->isOpen())
     // {
@@ -49,10 +50,10 @@ void GameEngine::RequestB() {
 }
 
 void GameEngine::update() {
-    while (window->pollEvent(this->event))
+    while (window.getPoolEvent())
     {
-        if (this->event.type == sf::Event::Closed)
-            this->window->close();
+        if (this->window.getEvent().type == sf::Event::Closed)
+            this->window.close();
     }
     if (this->state_ != nullptr)
     {
@@ -66,19 +67,19 @@ void GameEngine::update() {
     }
     // End of application
     else
-        this->window->close();
+        this->window.close();
 }
 
 void GameEngine::render() {
-    window->clear(sf::Color(14, 134, 212));
+    window.clear(sf::Color(14, 134, 212));
 
-        this->state_->render(window);
+        this->state_->render(window.getWindow());
 
-    window->display();
+    window.display();
 }
 
 void GameEngine::run() {
-    while (this->window->isOpen())
+    while (this->window.isOpen())
     {
         this->update();
 
