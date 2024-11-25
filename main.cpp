@@ -1,12 +1,7 @@
-#include <SFML/Graphics.hpp>
-#include "GameEngine.hpp"
-
+#include "Game.h"
 int main()
 {
-
-    GameEngine eng = GameEngine(new MenuState());
-
-    eng.RequestA();
+    Game g;
+    g.run();
     return 0;
-
 }

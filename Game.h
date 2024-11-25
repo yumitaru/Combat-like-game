@@ -1,16 +1,33 @@
-//
-// Created by jakub on 21.06.2024.
-//
+#ifndef GAME_HPP
+#define GAME_HPP
+#include "SFML/Graphics.hpp"
+#include "SFML/System.hpp"
+#include "SFML/Window.hpp"
+#include <iostream>
+#include <stack>
+#include "Tank1.h"
+#include "Tank2.h"
+#include "GameState.h"
 
-#ifndef GAME_H
-#define GAME_H
+class Game
+{
+	sf::RenderWindow *window;
+	sf::Event e;
+	sf::Clock dtClock;
+	std::stack<State*> states;
+	float dt; 
+	
+	void initWindow();
+	void initStates();
 
-
-
-class Game {
-
+public:
+	Game();
+	~Game();
+	void updateDt();
+	void updateEvents();
+	void update();
+	void render();
+	void run();
 };
 
-
-
-#endif //GAME_H
+#endif

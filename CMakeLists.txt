@@ -13,16 +13,36 @@ FetchContent_Declare(SFML
 FetchContent_MakeAvailable(SFML)
 
 add_executable(Combat-like-game main.cpp
-        GameEngine.cpp
-        GameEngine.hpp
-        Graphics/Window.cpp
-        Graphics/Window.hpp
-        States/State.cpp
-        States/State.hpp
-        States/GameState.cpp
-        States/GameState.hpp
-        States/MenuState.cpp
-        States/MenuState.hpp
+        Bullet1.cpp
+        Bullet1.h
+        Bullet2.cpp
+        Bullet2.h
+        Game.cpp
+        Game.h
+        LinkedList1.cpp
+        LinkedList1.h
+        LinkedList2.cpp
+        LinkedList2.h
+        LinkedListNode1.cpp
+        LinkedListNode1.h
+        LinkedListNode2.cpp
+        LinkedListNode2.h
+        LoadGame.cpp
+        LoadGame.h
+        SaveGame.cpp
+        SaveGame.h
+        Tank1.cpp
+        Tank1.h
+        Tank2.cpp
+        Tank2.h
+        # GameEngine.cpp
+        # GameEngine.hpp
+        State.cpp
+        State.h
+        GameState.cpp
+        GameState.h
+        # States/MenuState.cpp
+        # States/MenuState.hpp
                                 )
 target_link_libraries(Combat-like-game PRIVATE sfml-graphics)
 target_compile_features(Combat-like-game PRIVATE cxx_std_17)
