@@ -5,8 +5,7 @@
 #include "SFML/Window.hpp"
 #include <iostream>
 #include <stack>
-#include "Tank1.h"
-#include "Tank2.h"
+#include "Tank.h"
 #include "GameState.h"
 
 class Game

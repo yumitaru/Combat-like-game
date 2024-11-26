@@ -2,8 +2,10 @@
 #define STATE_HPP
 
 #include "SFML/Graphics.hpp"
-#include "Tank1.h"
-#include "Tank2.h"
+#include "Tank.h"
+
+class Tank;
+
 class State
 {
 	sf::RenderWindow* window;
@@ -23,10 +25,8 @@ public:
 	virtual void updateKeybinds(const float &dt) = 0;
 	virtual void update(const float & dt) = 0;
 	virtual void render(sf::RenderTarget* target = nullptr) = 0;
-	virtual void updateBullets1() = 0;
-	virtual void updateBullets2() = 0;
-	virtual void bulletKeys1(const float& dt) = 0;
-	virtual void bulletKeys2(const float& dt) = 0;
+	virtual void updateBullets(Tank player) = 0;
+	virtual void bulletKeys(Tank player, const float& dt) = 0;
 };
 
 #endif

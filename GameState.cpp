@@ -2,12 +2,16 @@
 
 GameState::GameState(sf::RenderWindow* window) : State(window)
 {
+	player2 = Tank(2);
+	player2.startPos(750.f, 300.f);
+
 }
 
 GameState::~GameState()
 {
-	bullets1.clear();
-	bullets2.clear();
+	// bullets1.clear();
+	this->player1.getBullets().clear();
+	this->player2.getBullets().clear();
 }
 
 
@@ -25,27 +29,38 @@ void GameState::updateKeybinds(const float& dt)
 
 void GameState::update(const float& dt)
 {
-	Current1 = bullets1.getHead();
-	Current2 = bullets2.getHead();
+	// Current1 = bullets1.getHead();
+	this->player1.setCurrent(this->player1.getBullets().getHead());
+	this->player2.setCurrent(this->player2.getBullets().getHead());
 	this->updateKeybinds(dt);
 	this->player1.update(dt);
 	this->player2.update(dt);
 
-	this->bulletKeys1(dt);
-	if (Current1->operator!=(nullptr))
-		bullets1.back()->create(dt);
-	while (Current1->operator!=(nullptr))        
+	this->bulletKeys(player1, dt);
+	// if (Current1->operator!=(nullptr))
+	// 	bullets1.back()->create(dt);
+	// while (Current1->operator!=(nullptr))        
+	// {
+	// 	Current1->bullet()->update(dt);
+	// 	Current1 = Current1->next();
+	// }
+	this->bulletKeys(player2, dt);
+	if (this->player1.getCurrent()->operator!=(nullptr))
+		this->player1.getBullets().back()->create(dt);
+	while (this->player1.getCurrent()->operator!=(nullptr))        
 	{
-		Current1->bullet()->update(dt);
-		Current1 = Current1->next();
+		this->player1.getCurrent()->bullet()->update(dt);
+		this->player1.setCurrent(this->player1.getCurrent()->next());
+
 	}
-	this->bulletKeys2(dt);
-	if (Current2->operator!=(nullptr))
-		bullets2.back()->create(dt);
-	while (Current2->operator!=(nullptr))        
+
+	if (this->player2.getCurrent()->operator!=(nullptr))
+		this->player2.getBullets().back()->create(dt);
+	while (this->player2.getCurrent()->operator!=(nullptr))        
 	{
-		Current2->bullet()->update(dt);
-		Current2 = Current2->next();
+		this->player2.getCurrent()->bullet()->update(dt);
+		this->player2.setCurrent(this->player1.getCurrent()->next());
+
 	}
 	save.update(player1, player2);
 	load.update(player1, player2);
@@ -54,8 +69,9 @@ void GameState::update(const float& dt)
 	{
 		player1.setPosition();
 		player2.setPosition();
-		bullets1.clear();
-		bullets2.clear();
+		// bullets1.clear();
+		this->player1.getBullets().clear();
+		this->player2.getBullets().clear();
 		load.loadFalse();
 	}
 
@@ -63,86 +79,64 @@ void GameState::update(const float& dt)
 
 void GameState::render(sf::RenderTarget* target)
 {
-	Current1 = bullets1.getHead();
-	Current2 = bullets2.getHead();
+	// Current1 = bullets1.getHead();
+	
+	this->player1.setCurrent(this->player1.getBullets().getHead());
+	this->player2.setCurrent(this->player2.getBullets().getHead());
+	
 	this->player1.render(this->getWindow());
 	this->player2.render(this->getWindow());
 
-	while (Current1->operator!=(nullptr))        
+	// while (Current1->operator!=(nullptr))        
+	// {
+	// 	Current1->bullet()->render(this->getWindow());
+	// 	Current1 = Current1->next();
+	// }
+	while (this->player1.getCurrent()->operator!=(nullptr))       
 	{
-		Current1->bullet()->render(this->getWindow());
-		Current1 = Current1->next();
+		this->player1.getCurrent()->bullet()->render(this->getWindow());
+		this->player1.setCurrent(this->player1.getCurrent()->next());
 	}
-	while (Current2->operator!=(nullptr))       
+
+	while (this->player2.getCurrent()->operator!=(nullptr))       
 	{
-		Current2->bullet()->render(this->getWindow());
-		Current2 = Current2->next();
+		this->player2.getCurrent()->bullet()->render(this->getWindow());
+		this->player2.setCurrent(this->player2.getCurrent()->next());
 	}
 }
 
-void GameState::updateBullets1()
+void GameState::updateBullets(Tank player)
 {
-	bullets1.push_back(new Bullet1(this->player1));
+	player.getBullets().push_back(new Bullet(player));
 }
 
-void GameState::bulletKeys1(const float& dt)
+void GameState::bulletKeys(Tank player, const float& dt)
 {
 	if (clock1.getElapsedTime().asMilliseconds() >= 500){
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	if (sf::Keyboard::isKeyPressed(player.getUp()) && sf::Keyboard::isKeyPressed(player.getFireKey()))
 	{
-		this->updateBullets1();
+		this->updateBullets(player);
 		clock1.restart();
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	else if (sf::Keyboard::isKeyPressed(player.getLeft()) && sf::Keyboard::isKeyPressed(player.getFireKey()))
 	{
-		this->updateBullets1();
+		this->updateBullets(player);
 		clock1.restart();
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) && sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	else if (sf::Keyboard::isKeyPressed(player.getDown()) && sf::Keyboard::isKeyPressed(player.getFireKey()))
 	{
-		this->updateBullets1();
+		this->updateBullets(player);
 		clock1.restart();
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	else if (sf::Keyboard::isKeyPressed(player.getRight()) && sf::Keyboard::isKeyPressed(player.getFireKey()))
 	{
-		this->updateBullets1();
+		this->updateBullets(player);
 		clock1.restart();
 	}
 		}
 
 }
 
-void GameState::updateBullets2()
-{
-	this->bullets2.push_back(new Bullet2(this->player2));
-}
 
-void GameState::bulletKeys2(const float& dt)
-{
-	if (clock2.getElapsedTime().asMilliseconds() >= 500)
-	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && sf::Keyboard::isKeyPressed(sf::Keyboard::RControl))
-		{
-			this->updateBullets2();
-			clock2.restart();
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && sf::Keyboard::isKeyPressed(sf::Keyboard::RControl))
-		{
-			this->updateBullets2();
-			clock2.restart();
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && sf::Keyboard::isKeyPressed(sf::Keyboard::RControl))
-		{
-			this->updateBullets2();
-			clock2.restart();
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && sf::Keyboard::isKeyPressed(sf::Keyboard::RControl))
-		{
-			this->updateBullets2();
-			clock2.restart();
-		}
-	}
-
-}
 
 

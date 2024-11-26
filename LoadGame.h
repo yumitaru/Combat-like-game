@@ -12,7 +12,7 @@ public:
 	virtual ~LoadGame();
 	void loadFalse();
 	
-	void update(Tank1&, Tank2&);
+	void update(Tank&, Tank&);
 	bool isLoaded();
 	bool operator==(const bool&);
 

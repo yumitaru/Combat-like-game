@@ -1,33 +1,30 @@
-#include "LinkedList1.h"
+#include "LinkedList.h"
 
-LinkedList1::LinkedList1(): Head(nullptr)
-{
-}
 
-LinkedList1::~LinkedList1()
+LinkedList::~LinkedList()
 {
 	clear();
 }
 
-void LinkedList1::push_back(Bullet1* bullets)
+void LinkedList::push_back(Bullet* bullets)
 {
 	if (Head == nullptr)
 	{
-		Head = new LinkedListNode1(bullets);
+		Head = new LinkedListNode(bullets);
 	}
 	else
 	{
-		LinkedListNode1* Current = Head;
+		LinkedListNode* Current = Head;
 		while (Current->next() != nullptr)
 		{
 			Current = Current->next();
 		}
-		LinkedListNode1* Temp = new LinkedListNode1(bullets , Current);
+		LinkedListNode* Temp = new LinkedListNode(bullets , Current);
 		Current->next() = Temp;
 	}
 }
 
-void LinkedList1::pop_back()
+void LinkedList::pop_back()
 {
 	if (Head == nullptr)
 	{
@@ -40,7 +37,7 @@ void LinkedList1::pop_back()
 	}
 	else
 	{
-		LinkedListNode1* Current = Head;
+		LinkedListNode* Current = Head;
 		while (Current->next() != nullptr)
 		{
 			Current = Current->next();
@@ -50,26 +47,26 @@ void LinkedList1::pop_back()
 	}
 }
 
-void LinkedList1::clear()
+void LinkedList::clear()
 {
-	LinkedListNode1* Current = Head;
+	LinkedListNode* Current = Head;
 	while(Current != nullptr)
 	{
-		LinkedListNode1* Temp = Current->next();
+		LinkedListNode* Temp = Current->next();
 		delete Current;
 		Current = Temp;
 	}
 	Head = nullptr;
 }
 
-LinkedListNode1* LinkedList1::getHead()
+LinkedListNode* LinkedList::getHead()
 {
 	return this->Head;
 }
 
 
 
-Bullet1* LinkedList1::front()
+Bullet* LinkedList::front()
 {
 	if (Head == nullptr)
 	{
@@ -78,13 +75,13 @@ Bullet1* LinkedList1::front()
 	return Head->bullet();
 }
 
-Bullet1* LinkedList1::back()
+Bullet* LinkedList::back()
 {
 	if (Head == nullptr)
 	{
 		std::cout << "List is empty!" << std::endl;
 	}
-	LinkedListNode1* Current = Head;
+	LinkedListNode* Current = Head;
 	while (Current->next() != nullptr)
 	{
 		Current = Current->next();
@@ -92,7 +89,7 @@ Bullet1* LinkedList1::back()
 	return Current->bullet();
 }
 
-bool LinkedList1::empty()
+bool LinkedList::empty()
 {
 	if (Head == nullptr)
 		return true;

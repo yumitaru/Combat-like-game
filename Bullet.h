@@ -1,9 +1,9 @@
 #ifndef BULLET1_HPP
 #define BULLET1_HPP
 #include "State.h"
-class Tank1;
+class Tank;
 
-class Bullet1
+class Bullet
 {
 	sf::CircleShape shape;
 	float movementSpeed;
@@ -12,8 +12,8 @@ class Bullet1
 	float d_y;
 	
 public:
-	Bullet1(Tank1);
-	virtual ~Bullet1();
+	Bullet(Tank);
+	virtual ~Bullet();
 
 	void create(const float& dt);
 	virtual void move(const float& dt, const float& dir_x, const float& dir_y);

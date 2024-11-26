@@ -9,7 +9,7 @@ LoadGame::~LoadGame()
 {
 }
 
-void LoadGame::update(Tank1& t1, Tank2& t2)
+void LoadGame::update(Tank& t1, Tank& t2)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::X))
 	{

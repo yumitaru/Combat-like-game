@@ -12,7 +12,7 @@ SaveGame::~SaveGame()
 
 
 
-void SaveGame::update(Tank1 t1, Tank2 t2)
+void SaveGame::update(Tank t1, Tank t2)
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
     {

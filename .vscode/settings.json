@@ -1,0 +1,17 @@
+{
+    "files.associations": {
+        "bitset": "cpp",
+        "deque": "cpp",
+        "iosfwd": "cpp",
+        "iterator": "cpp",
+        "list": "cpp",
+        "system_error": "cpp",
+        "vector": "cpp",
+        "xlocale": "cpp",
+        "xstring": "cpp",
+        "xtree": "cpp",
+        "xutility": "cpp",
+        "stack": "cpp",
+        "iostream": "cpp"
+    }
+}

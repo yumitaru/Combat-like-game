@@ -1,7 +1,7 @@
-#include "Bullet1.h"
+#include "Bullet.h"
 
 
-Bullet1::Bullet1(Tank1 t1)
+Bullet::Bullet(Tank t1)
 {
 	this->d_x = 0;
 	this->d_y = 0;
@@ -14,40 +14,40 @@ Bullet1::Bullet1(Tank1 t1)
 }
 
 
-Bullet1::~Bullet1()
+Bullet::~Bullet()
 {
 }
 
-void Bullet1::move(const float& dt, const float& dir_x, const float& dir_y)
+void Bullet::move(const float& dt, const float& dir_x, const float& dir_y)
 {
 	this->d_x = dir_x;
 	this->d_y = dir_y;
 	this->shape.move(this->d_x * this->movementSpeed * dt, this->d_y * this->movementSpeed * dt);
 }
 
-void Bullet1::create(const float& dt)
+void Bullet::create(const float& dt)
 {
 
-	this->isMoving();
+	// this->isMoving();
 	if (this->m == true)
 	{
 		this->move(dt, this->d_x, this->d_y);
 	}
 }
-void Bullet1::update(const float& dt)
+void Bullet::update(const float& dt)
 {
 	
 		this->move(dt, this->d_x, this->d_y);
 	
 }
 
-void Bullet1::render(sf::RenderWindow* target)
+void Bullet::render(sf::RenderWindow* target)
 {
 	target->draw(this->shape);
 }
 
 
-void Bullet1::isMoving()
+void Bullet::isMoving()
 {
 	if (this->m == true) {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && sf::Keyboard::isKeyPressed(sf::Keyboard::Space))

@@ -13,28 +13,20 @@ FetchContent_Declare(SFML
 FetchContent_MakeAvailable(SFML)
 
 add_executable(Combat-like-game main.cpp
-        Bullet1.cpp
-        Bullet1.h
-        Bullet2.cpp
-        Bullet2.h
+        Bullet.cpp
+        Bullet.h
         Game.cpp
         Game.h
-        LinkedList1.cpp
-        LinkedList1.h
-        LinkedList2.cpp
-        LinkedList2.h
-        LinkedListNode1.cpp
-        LinkedListNode1.h
-        LinkedListNode2.cpp
-        LinkedListNode2.h
+        LinkedList.cpp
+        LinkedList.h
+        LinkedListNode.cpp
+        LinkedListNode.h
         LoadGame.cpp
         LoadGame.h
         SaveGame.cpp
         SaveGame.h
-        Tank1.cpp
-        Tank1.h
-        Tank2.cpp
-        Tank2.h
+        Tank.cpp
+        Tank.h
         # GameEngine.cpp
         # GameEngine.hpp
         State.cpp

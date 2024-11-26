@@ -9,7 +9,7 @@ class SaveGame
 public:
 	SaveGame();
 	virtual ~SaveGame();
-	void update(Tank1, Tank2);
+	void update(Tank, Tank);
 };
 
 #endif // !SAVEGAME_HPP
