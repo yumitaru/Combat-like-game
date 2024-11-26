@@ -1,5 +1,6 @@
 #include "LoadGame.h"
 
+
 LoadGame::LoadGame()
 {
 	this->loading = false;

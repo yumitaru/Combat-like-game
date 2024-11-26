@@ -1,10 +1,9 @@
 #ifndef STATE_HPP
 #define STATE_HPP
 
-#include "SFML/Graphics.hpp"
-#include "Tank.h"
 
-class Tank;
+
+#include "Tank.h"
 
 class State
 {

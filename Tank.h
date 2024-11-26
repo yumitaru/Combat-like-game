@@ -1,14 +1,8 @@
 #ifndef TANK1_HPP
 #define TANK1_HPP
 
-#include "SFML/Graphics.hpp"
-#include <vector>
-#include <stack>
-#include <iostream>
-#include <sstream>
-class LinkedList;
-class LinkedListNode;
-class  Bullet;
+
+#include "LinkedList.h"
 
 class Tank
 {
@@ -45,10 +39,6 @@ public:
 	sf::Keyboard::Key getRight();
 	sf::Keyboard::Key getFireKey();
 
-	void crateBullets(const float& dt);
-	virtual void bulletsMove(const float& dt, const float& dir_x, const float& dir_y);
-	virtual void bulletsUpdate(const float& dt);
-	virtual void bulletsRender(sf::RenderWindow* target);
 	void isMoving();
 	LinkedList &getBullets();
 	LinkedListNode *getCurrent();

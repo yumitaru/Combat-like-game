@@ -86,7 +86,6 @@ sf::Keyboard::Key Tank::getFireKey()
 }
 
 
-
 LinkedList& Tank::getBullets()
 {
     return this->bullets;

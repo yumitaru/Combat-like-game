@@ -1,11 +1,10 @@
 #include "Bullet.h"
 
 
-Bullet::Bullet(Tank t1)
+Bullet::Bullet()
 {
 	this->d_x = 0;
 	this->d_y = 0;
-	this->shape.setPosition(t1.getPosition());
 	this->shape.setRadius(10.f);
 	this->shape.setOrigin(5.f, 5.f);
 	this->shape.setFillColor(sf::Color::Green);

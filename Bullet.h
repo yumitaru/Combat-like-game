@@ -1,7 +1,10 @@
 #ifndef BULLET1_HPP
 #define BULLET1_HPP
-#include "State.h"
-class Tank;
+#include "SFML/Graphics.hpp"
+#include <vector>
+#include <stack>
+#include <iostream>
+#include <sstream>
 
 class Bullet
 {
@@ -12,7 +15,7 @@ class Bullet
 	float d_y;
 	
 public:
-	Bullet(Tank);
+	Bullet();
 	virtual ~Bullet();
 
 	void create(const float& dt);

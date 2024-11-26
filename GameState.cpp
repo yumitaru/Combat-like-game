@@ -107,7 +107,7 @@ void GameState::render(sf::RenderTarget* target)
 
 void GameState::updateBullets(Tank player)
 {
-	player.getBullets().push_back(new Bullet(player));
+	player.getBullets().push_back(new Bullet());
 }
 
 void GameState::bulletKeys(Tank player, const float& dt)
