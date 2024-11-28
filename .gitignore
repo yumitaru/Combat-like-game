@@ -67,4 +67,14 @@ lib/*
 bin/*
 test/test_runner
 
+**/.vscode
 query.json
+settings.json
+
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+.vscode/settings.json

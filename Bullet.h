@@ -6,6 +6,7 @@
 #include <iostream>
 #include <sstream>
 
+
 class Bullet
 {
 	sf::CircleShape shape;
@@ -23,6 +24,7 @@ public:
 	virtual void update(const float& dt);
 	virtual void render(sf::RenderWindow* target);
 	void isMoving();
+	float getPos();
 
 
 };

@@ -29,8 +29,8 @@ public:
 	void updateKeybinds(const float& dt);
 	void update(const float& dt);
 	void render(sf::RenderTarget* target = NULL);
-	void updateBullets(Tank player);
-	void bulletKeys(Tank player, const float & dt);
+	void updateBullets(Tank &player);
+	void bulletKeys(Tank &player, const float & dt);
 };
 
 #endif

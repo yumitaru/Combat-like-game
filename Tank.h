@@ -40,9 +40,27 @@ public:
 	sf::Keyboard::Key getFireKey();
 
 	void isMoving();
-	LinkedList &getBullets();
 	LinkedListNode *getCurrent();
+
+	// Linked list methods
+	void bulletsPush_back(Bullet* bullets);
+	void bulletsPop_back();
+	void bulletsClear();
+	Bullet* front();
+	Bullet* back();
+	bool empty();
+	LinkedListNode* getHead();
+
+	// Linked list node methods
+	LinkedListNode*& next();
+	LinkedListNode*& previous();
+	Bullet* bullet();
+	bool operator!=(LinkedListNode*);
+
+
 	void setCurrent(LinkedListNode*);
+
+	virtual void renderBullet(sf::RenderWindow* target);
 
 	
 };

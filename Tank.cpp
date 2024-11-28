@@ -86,19 +86,78 @@ sf::Keyboard::Key Tank::getFireKey()
 }
 
 
-LinkedList& Tank::getBullets()
-{
-    return this->bullets;
-}
 
 LinkedListNode* Tank::getCurrent()
 {
     return this->Current;
 }
 
+void Tank::bulletsPush_back(Bullet *bullets)
+{
+
+	this->bullets.push_back(bullets);
+}
+
+void Tank::bulletsPop_back()
+{
+	this->bullets.pop_back();
+}
+
+void Tank::bulletsClear()
+{
+	this->bullets.clear();
+}
+
+Bullet *Tank::front()
+{
+    return this->bullets.front();
+}
+
+Bullet *Tank::back()
+{
+    return this->bullets.back();
+}
+
+bool Tank::empty()
+{
+    return this->bullets.empty();
+}
+
+LinkedListNode *Tank::getHead()
+{
+    return this->bullets.getHead();
+}
+
+LinkedListNode *&Tank::next()
+{
+    return this->Current->next();
+}
+
+LinkedListNode *&Tank::previous()
+{
+    return this->Current->previous();
+}
+
+Bullet *Tank::bullet()
+{
+    return this->Current->bullet();
+}
+
+bool Tank::operator!=(LinkedListNode * l)
+{
+    return this->Current->operator!=(l);
+}
+
 void Tank::setCurrent(LinkedListNode * current)
 {
 	this->Current = current;
+}
+
+void Tank::renderBullet(sf::RenderWindow *target)
+{
+	// std::cout << " jo; " << this->Current->bullet() << std::endl;
+	this->Current->bullet()->render(target);
+	
 }
 
 sf::Vector2f Tank::getPosition()

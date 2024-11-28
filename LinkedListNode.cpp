@@ -2,7 +2,7 @@
 
 LinkedListNode::LinkedListNode(Bullet* bullets, LinkedListNode* previous, LinkedListNode* next) : Bullets(bullets), Previous(previous), Next(next)
 {
-
+	
 }
 
 LinkedListNode*& LinkedListNode::next()

@@ -8,12 +8,20 @@ LinkedList::~LinkedList()
 
 void LinkedList::push_back(Bullet* bullets)
 {
+
 	if (Head == nullptr)
 	{
+		std::cout << "bomba1" << std::endl;
+
 		Head = new LinkedListNode(bullets);
+
+		std::cout << this->Head << std::endl;
+		std::cout << "essa" << std::endl;
 	}
 	else
 	{
+		std::cout << "bomba2" << std::endl;
+
 		LinkedListNode* Current = Head;
 		while (Current->next() != nullptr)
 		{
@@ -93,6 +101,6 @@ bool LinkedList::empty()
 {
 	if (Head == nullptr)
 		return true;
-	if (Head != nullptr)
+	else
 		return false;
 }

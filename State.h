@@ -24,8 +24,8 @@ public:
 	virtual void updateKeybinds(const float &dt) = 0;
 	virtual void update(const float & dt) = 0;
 	virtual void render(sf::RenderTarget* target = nullptr) = 0;
-	virtual void updateBullets(Tank player) = 0;
-	virtual void bulletKeys(Tank player, const float& dt) = 0;
+	virtual void updateBullets(Tank &player) = 0;
+	virtual void bulletKeys(Tank &player, const float& dt) = 0;
 };
 
 #endif

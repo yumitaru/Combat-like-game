@@ -5,6 +5,7 @@ Bullet::Bullet()
 {
 	this->d_x = 0;
 	this->d_y = 0;
+	this->shape.setPosition(sf::Vector2f(50.0,50.0));
 	this->shape.setRadius(10.f);
 	this->shape.setOrigin(5.f, 5.f);
 	this->shape.setFillColor(sf::Color::Green);
@@ -70,4 +71,9 @@ void Bullet::isMoving()
 			this->m = false;
 		}
 	}
+}
+
+float Bullet::getPos()
+{
+    return this->shape.getPosition().x;
 }
