@@ -5,28 +5,8 @@
 #include "GameEngine.hpp"
 
 
-void GameEngine::initWindow() {
-    // this->window = new sf::RenderWindow{ { 1024u, 800u }, "Combat" };
-    // window->setFramerateLimit(60);
-    window = Window();
-    //
-    // while (window->isOpen())
-    // {
-    //     for (auto event = sf::Event{}; window->pollEvent(event);)
-    //     {
-    //         if (event.type == sf::Event::Closed)
-    //         {
-    //             window->close();
-    //         }
-    //     }
-    //
-    //     window->clear();
-    //     window->display();
-    // }
-}
 
 GameEngine::GameEngine(State *state): state_(nullptr) {
-    initWindow();
     TransitionTo(state);
 }
 

@@ -19,7 +19,6 @@ class GameEngine {
 
     float dt;
     sf::Clock dtClock;
-    void initWindow();
 
 public:
     GameEngine(State *state);

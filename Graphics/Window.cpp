@@ -5,25 +5,20 @@
 #include "Window.hpp"
 
 Window::Window() {
-    this->window = new sf::RenderWindow{ { 1024u, 800u }, "Combat" };
+    this->window = std::make_unique<sf::RenderWindow>(sf::VideoMode(1024, 800), "Combat");
     window->setFramerateLimit(60);
 }
 
-Window::~Window() {
-    delete window;
-}
 
 sf::RenderWindow * Window::getWindow() {
-    return this->window;
+    return window.get();
 }
 
  sf::Event &Window::getEvent() {
     return this->event;
 }
 
-void Window::setWindow(sf::RenderWindow * _window) {
-    window = _window;
-}
+
 
 void Window::setEvent(sf::Event _event) {
     event = _event;
