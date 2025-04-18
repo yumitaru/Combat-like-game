@@ -50,19 +50,22 @@ void GameState::update(const float& dt)
 	this->bulletKeys(player2, dt);
 	if (this->player1.operator!=(nullptr))
 		this->player1.back()->create(dt);
+	this->player1.setCurrent(this->player1.getHead());
 	while (this->player1.operator!=(nullptr))        
 	{
-		this->player1.bullet()->update(dt);
+		// this->player1.updateBullet(dt);
+		this->player1.getCurrent()->bullet()->update(dt);
 		this->player1.setCurrent(this->player1.next());
 
 	}
 
 	if (this->player2.operator!=(nullptr))
 		this->player2.back()->create(dt);
+	this->player2.setCurrent(this->player2.getHead());
 	while (this->player2.operator!=(nullptr))        
 	{
-		this->player2.bullet()->update(dt);
-		this->player2.setCurrent(this->player1.next());
+		this->player2.updateBullet(dt);
+		this->player2.setCurrent(this->player2.next());
 
 	}
 	save.update(player1, player2);
@@ -98,17 +101,19 @@ void GameState::render(sf::RenderTarget* target)
 	// 	Current1 = Current1->next();
 	// }
 
-
-	while (this->player1.operator!=(nullptr))       
+	this->player1.setCurrent(this->player1.getHead());
+	while (this->player1.getCurrent() != nullptr)    
 	{
 
-		this->player1.bullet()->render(this->getWindow());
+		// this->player1.renderBullet(this->getWindow());
+		this->player1.getCurrent()->bullet()->render(this->getWindow());
 		this->player1.setCurrent(this->player1.getCurrent()->next());
 
 		
 	}
 
-	while (this->player2.operator!=(nullptr))       
+	this->player2.setCurrent(this->player2.getHead());
+	while (this->player2.getCurrent() != nullptr)     
 	{
 		std::cout << "bomba" << std::endl;
 		std::cout << player2.getHead() << std::endl;

@@ -11,7 +11,7 @@ public:
 	LinkedList(): Head(nullptr) {};
 	~LinkedList();
 
-	void push_back(Bullet* bullets);
+	void push_back(Bullet*& bullets);
 	void pop_back();
 	void clear();
 	LinkedListNode* getHead();

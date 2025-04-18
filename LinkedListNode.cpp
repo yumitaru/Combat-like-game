@@ -1,6 +1,6 @@
 #include "LinkedListNode.h"
 
-LinkedListNode::LinkedListNode(Bullet* bullets, LinkedListNode* previous, LinkedListNode* next) : Bullets(bullets), Previous(previous), Next(next)
+LinkedListNode::LinkedListNode(Bullet*& bullets, LinkedListNode* previous, LinkedListNode* next) : Bullets(bullets), Previous(previous), Next(next)
 {
 	
 }
@@ -15,12 +15,41 @@ LinkedListNode*& LinkedListNode::previous()
 	return this->Previous;
 }
 
-Bullet*& LinkedListNode::bullet()
+Bullet* LinkedListNode::bullet()
 {
-	return Bullets;
+    if (this->Bullets == nullptr)
+    {
+        std::cerr << "Error: Bullet is nullptr in LinkedListNode::bullet()" << std::endl;
+    }
+    return this->Bullets;
 }
 
-bool LinkedListNode::operator!=(LinkedListNode* l)
+void LinkedListNode::updateBullet(const float &dt)
+{
+    if (this->Bullets != nullptr)
+    {
+        this->Bullets->update(dt);
+    }
+    else
+    {
+        std::cerr << "Error: Bullet is nullptr in LinkedListNode::updateBullet()" << std::endl;
+    }
+}
+
+
+void LinkedListNode::renderBullet(sf::RenderWindow *target)
+{
+    if (this->Bullets != nullptr)
+    {
+        this->Bullets->render(target);
+    }
+    else
+    {
+        std::cerr << "Error: Bullet is nullptr in LinkedListNode::renderBullet()" << std::endl;
+    }
+}
+
+bool LinkedListNode::operator!=(LinkedListNode *l)
 {
 	if (this == l)
 		return false;

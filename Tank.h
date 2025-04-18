@@ -43,7 +43,7 @@ public:
 	LinkedListNode *getCurrent();
 
 	// Linked list methods
-	void bulletsPush_back(Bullet* bullets);
+	void bulletsPush_back(Bullet*& bullets);
 	void bulletsPop_back();
 	void bulletsClear();
 	Bullet* front();
@@ -54,9 +54,8 @@ public:
 	// Linked list node methods
 	LinkedListNode*& next();
 	LinkedListNode*& previous();
-	Bullet* bullet();
 	bool operator!=(LinkedListNode*);
-
+	virtual void updateBullet(const float& dt);
 
 	void setCurrent(LinkedListNode*);
 

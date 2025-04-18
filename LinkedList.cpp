@@ -6,7 +6,7 @@ LinkedList::~LinkedList()
 	clear();
 }
 
-void LinkedList::push_back(Bullet* bullets)
+void LinkedList::push_back(Bullet*& bullets)
 {
 
 	if (Head == nullptr)

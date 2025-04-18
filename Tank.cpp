@@ -92,7 +92,7 @@ LinkedListNode* Tank::getCurrent()
     return this->Current;
 }
 
-void Tank::bulletsPush_back(Bullet *bullets)
+void Tank::bulletsPush_back(Bullet *&bullets)
 {
 
 	this->bullets.push_back(bullets);
@@ -138,14 +138,22 @@ LinkedListNode *&Tank::previous()
     return this->Current->previous();
 }
 
-Bullet *Tank::bullet()
-{
-    return this->Current->bullet();
-}
+
 
 bool Tank::operator!=(LinkedListNode * l)
 {
     return this->Current->operator!=(l);
+}
+
+void Tank::updateBullet(const float &dt)
+{
+	try{
+		this->Current->updateBullet(dt);
+	}
+	catch (std::exception& e)
+	{
+		std::cout << "Error: " << e.what() << std::endl;
+	}
 }
 
 void Tank::setCurrent(LinkedListNode * current)
@@ -156,7 +164,18 @@ void Tank::setCurrent(LinkedListNode * current)
 void Tank::renderBullet(sf::RenderWindow *target)
 {
 	// std::cout << " jo; " << this->Current->bullet() << std::endl;
-	this->Current->bullet()->render(target);
+	// this->Current->renderBullet(target);
+	std::cout << this->Current << std::endl;
+	std::cout << this->Current->bullet() << std::endl;
+	if (this->Current->bullet() != nullptr)
+	{
+		this->Current->bullet()->render(target);
+	}
+	else
+	{
+		std::cerr << "Error: Bullet is nullptr in Tank::renderBullet()" << std::endl;
+	}
+
 	
 }
 
