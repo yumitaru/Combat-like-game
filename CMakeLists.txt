@@ -12,17 +12,17 @@ FetchContent_Declare(SFML
         GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(Combat-like-game main.cpp
-        GameEngine.cpp
-        GameEngine.hpp
-        Graphics/Window.cpp
-        Graphics/Window.hpp
-        States/State.cpp
-        States/State.hpp
-        States/GameState.cpp
-        States/GameState.hpp
-        States/MenuState.cpp
-        States/MenuState.hpp
+add_executable(Combat-like-game src/main.cpp
+        src/GameEngine.cpp
+        src/GameEngine.hpp
+        src/Graphics/Window.cpp
+        src/Graphics/Window.hpp
+        src/States/State.cpp
+        src/States/State.hpp
+        src/States/GameState.cpp
+        src/States/GameState.hpp
+        src/States/MenuState.cpp
+        src/States/MenuState.hpp
                                 )
 target_link_libraries(Combat-like-game PRIVATE sfml-graphics)
 target_compile_features(Combat-like-game PRIVATE cxx_std_17)

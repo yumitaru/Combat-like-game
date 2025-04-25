@@ -7,10 +7,10 @@
 
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
-#include "States/State.hpp"
-#include "Graphics/Window.hpp"
-#include "States/GameState.hpp"
-#include "States/MenuState.hpp"
+#include "States\State.hpp"
+#include "Graphics\Window.hpp"
+#include "States\GameState.hpp"
+#include "States\MenuState.hpp"
 
 
 class GameEngine {
