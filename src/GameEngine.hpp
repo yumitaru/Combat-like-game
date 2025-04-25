@@ -7,10 +7,9 @@
 
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
-#include "States/State.hpp"
-#include "Graphics/Window.hpp"
-#include "States/GameState.hpp"
-#include "States/MenuState.hpp"
+#include "States\State.hpp"
+#include "States\GameState.hpp"
+#include "States\MenuState.hpp"
 
 
 class GameEngine {
@@ -19,7 +18,6 @@ class GameEngine {
 
     float dt;
     sf::Clock dtClock;
-    void initWindow();
 
 public:
     GameEngine(State *state);
@@ -29,6 +27,7 @@ public:
 
     void RequestA();
     void RequestB();
+    void updateDt();
     void update();
     void render();
     void run();

@@ -4,19 +4,22 @@
 
 #ifndef WINDOW_HPP
 #define WINDOW_HPP
-#include "SFML/Graphics.hpp"
+
+#include "Tank.hpp"
 
 
 class Window {
 
-    sf::RenderWindow * window;
+    std::unique_ptr<sf::RenderWindow> window;
     sf::Event event;
 public:
     Window();
-    ~Window();
+    ~Window() = default;
+    Window(const Window&) = delete;
+    Window& operator=(const Window&) = delete;
+
     sf::RenderWindow * getWindow();
     sf::Event &getEvent();
-    void setWindow(sf::RenderWindow*);
     void setEvent(sf::Event);
     bool getPoolEvent();
     void close();
