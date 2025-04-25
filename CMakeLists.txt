@@ -17,6 +17,10 @@ add_executable(Combat-like-game src/main.cpp
         src/GameEngine.hpp
         src/Graphics/Window.cpp
         src/Graphics/Window.hpp
+        src/Graphics/Tank.cpp
+        src/Graphics/Tank.hpp
+        src/Controller/TankController.cpp
+        src/Controller/TankController.hpp
         src/States/State.cpp
         src/States/State.hpp
         src/States/GameState.cpp

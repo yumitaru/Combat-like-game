@@ -13,10 +13,18 @@ void GameState::DoWorkB() {
 }
 
 void GameState::update(const float &dt) {
+
+    this->player.update(dt);
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+        this->setQuit(true);
+
 }
 
 void GameState::endState() {
 }
 
 void GameState::render(sf::RenderTarget *target) {
+
+    this->player.render(target);
 }

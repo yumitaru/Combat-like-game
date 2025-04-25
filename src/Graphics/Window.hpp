@@ -4,7 +4,8 @@
 
 #ifndef WINDOW_HPP
 #define WINDOW_HPP
-#include "SFML/Graphics.hpp"
+
+#include "Tank.hpp"
 
 
 class Window {

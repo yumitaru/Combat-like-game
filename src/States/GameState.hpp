@@ -9,6 +9,8 @@
 
 class GameState: public State {
 
+    Tank player;
+
 public:
     virtual void DoWorkA() override;
     virtual void DoWorkB() override;

@@ -29,6 +29,11 @@ void GameEngine::RequestB() {
     state_->DoWorkB();
 }
 
+void GameEngine::updateDt()
+{
+    this->dt = this->dtClock.restart().asSeconds();
+}
+
 void GameEngine::update() {
     while (window.getPoolEvent())
     {
@@ -61,6 +66,8 @@ void GameEngine::render() {
 void GameEngine::run() {
     while (this->window.isOpen())
     {
+        this->updateDt();
+
         this->update();
 
         this->render();

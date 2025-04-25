@@ -4,7 +4,7 @@
 
 #ifndef STATE_H
 #define STATE_H
-#include "SFML/Graphics.hpp"
+#include "../Graphics/Window.hpp"
 #include <iostream>
 class GameEngine;
 

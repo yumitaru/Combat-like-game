@@ -8,7 +8,6 @@
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
 #include "States\State.hpp"
-#include "Graphics\Window.hpp"
 #include "States\GameState.hpp"
 #include "States\MenuState.hpp"
 
@@ -28,6 +27,7 @@ public:
 
     void RequestA();
     void RequestB();
+    void updateDt();
     void update();
     void render();
     void run();
