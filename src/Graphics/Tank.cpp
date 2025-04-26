@@ -22,16 +22,24 @@ sf::RectangleShape &Tank::getShape()
 void Tank::render(sf::RenderTarget *target)
 {
     target->draw(this->shape);
+
+    for (auto &bullet : bullets)
+    {
+        bullet.render(target);
+    }
+
 }
 
 void Tank::update(const float &dt)
 {
     std::cout << "Rectangle Position: " << this->shape.getPosition().x << ", " << this->shape.getPosition().y << std::endl;
 
-    rotation = this->shape.getRotation(); // in degrees
-    radians = rotation * 3.14159265f / 180.f;
+    std::cout << "Bullets size: " << bullets.size() << std::endl;
+    
+    this->rotation = this->shape.getRotation(); // in degrees
+    this->radians = rotation * 3.14159265f / 180.f;
 
-    direction = {std::cos(radians), std::sin(radians)};
+    this->direction = {std::cos(radians), std::sin(radians)};
 
     if (sf::Keyboard::isKeyPressed(this->controller.getUp()))
     {
@@ -49,8 +57,17 @@ void Tank::update(const float &dt)
     {
         this->shape.rotate(100.f * dt);
     }
-    if (sf::Keyboard::isKeyPressed(this->controller.getFire()))
+    if (sf::Keyboard::isKeyPressed(this->controller.getFire()) && bulletCooldown.getElapsedTime().asSeconds() > 0.5f)
     {
-        // Fire logic here
+        Bullet bullet(this->shape.getPosition());
+        bullet.setDirection(this->radians);
+        bullet.update(dt);
+        bullets.push_back(bullet);
+        bulletCooldown.restart();
+    }
+
+    for (auto &bullet : bullets)
+    {
+        bullet.update(dt);
     }
 }

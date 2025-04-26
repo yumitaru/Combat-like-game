@@ -2,7 +2,7 @@
 #define TANK_H
 
 
-#include "../Controller/TankController.hpp"
+#include "Bullet.hpp"
 #include <iostream>
 
 class Tank {
@@ -12,6 +12,8 @@ class Tank {
     float rotation;
     float radians;
     sf::Vector2f direction;
+    std::vector<Bullet> bullets;
+    sf::Clock bulletCooldown;
 public:
     Tank();
     ~Tank();
