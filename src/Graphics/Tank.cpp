@@ -3,9 +3,10 @@
 Tank::Tank()
 {
     this->shape.setSize(sf::Vector2f(50.f,50.f));
-	this->shape.setFillColor(sf::Color::White);
-	this->shape.setPosition(50.f, 300.f);
+	this->shape.setFillColor(sf::Color::Blue);
+
 	this->shape.setOrigin(sf::Vector2f(25.f,25.f));
+    this->shape.setPosition(75.f, 400.f);
     this->controller.setKeys(0);
     this->speed = 50.f;
 }

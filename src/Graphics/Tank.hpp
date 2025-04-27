@@ -7,6 +7,7 @@
 
 class Tank {
     sf::RectangleShape shape;
+    // sf::CircleShape collisionShape;
     TankController controller;
     float speed;
     float rotation;

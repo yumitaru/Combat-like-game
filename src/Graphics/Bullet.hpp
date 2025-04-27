@@ -1,7 +1,7 @@
 #ifndef BULLET_HPP
 #define BULLET_HPP
 
-#include "../Controller/TankController.hpp"
+#include "Map.hpp"
 
 class Bullet {
     sf::CircleShape shape;

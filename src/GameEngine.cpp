@@ -56,7 +56,7 @@ void GameEngine::update() {
 }
 
 void GameEngine::render() {
-    window.clear(sf::Color(14, 134, 212));
+    window.clear(sf::Color(135, 27, 14));
 
         this->state_->render(window.getWindow());
 

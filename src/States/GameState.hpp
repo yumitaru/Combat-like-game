@@ -10,6 +10,7 @@
 class GameState: public State {
 
     Tank player;
+    Map map;
 
 public:
     virtual void DoWorkA() override;

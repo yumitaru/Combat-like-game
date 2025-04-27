@@ -25,6 +25,8 @@ void GameState::endState() {
 }
 
 void GameState::render(sf::RenderTarget *target) {
+    
+    this->map.render(target);
 
     this->player.render(target);
 }
