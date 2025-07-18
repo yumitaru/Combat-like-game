@@ -15,6 +15,7 @@ void GameState::DoWorkB() {
 void GameState::update(const float &dt) {
 
     this->player.update(dt);
+    this->wallCollision.update(dt, this->player, this->map);
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
         this->setQuit(true);

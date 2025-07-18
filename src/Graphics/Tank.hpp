@@ -7,7 +7,7 @@
 
 class Tank {
     sf::RectangleShape shape;
-    // sf::CircleShape collisionShape;
+    sf::CircleShape collisionShape;
     TankController controller;
     float speed;
     float rotation;
@@ -15,11 +15,17 @@ class Tank {
     sf::Vector2f direction;
     std::vector<Bullet> bullets;
     sf::Clock bulletCooldown;
+    sf::Vector2f previousPosition;
+    float forward = 0.f;
 public:
     Tank();
     ~Tank();
 
-    sf::RectangleShape &getShape();
+    sf::RectangleShape getShape();
+    sf::CircleShape getCollisionShape();
+    sf::Vector2f getPreviousPosition();
+    void setPosition(const sf::Vector2f &position);
+
 
     void render(sf::RenderTarget *target = nullptr);
     void update(const float &dt);

@@ -13,6 +13,7 @@ public:
 
     void render(sf::RenderTarget *target = nullptr);
     void update(const float &dt);
+    std::vector<sf::RectangleShape> getWalls();
 };
 
 

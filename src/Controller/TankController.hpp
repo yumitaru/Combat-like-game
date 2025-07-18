@@ -2,6 +2,7 @@
 #define TANKCONTROLLER_HPP
 
 #include "SFML/Graphics.hpp"
+#include <iostream>
 class TankController {
     sf::Keyboard::Key Up;
 	sf::Keyboard::Key Down;

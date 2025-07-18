@@ -11,6 +11,7 @@ class GameState: public State {
 
     Tank player;
     Map map;
+    WallCollision wallCollision;
 
 public:
     virtual void DoWorkA() override;

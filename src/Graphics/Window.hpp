@@ -5,7 +5,7 @@
 #ifndef WINDOW_HPP
 #define WINDOW_HPP
 
-#include "Tank.hpp"
+#include "../Controller/WallCollision.hpp"
 
 
 class Window {

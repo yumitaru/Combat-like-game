@@ -24,3 +24,8 @@ void Map::render(sf::RenderTarget *target)
 void Map::update(const float &dt)
 {
 }
+
+std::vector<sf::RectangleShape> Map::getWalls()
+{
+    return this->walls;
+}

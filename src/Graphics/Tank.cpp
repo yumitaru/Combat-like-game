@@ -4,6 +4,8 @@ Tank::Tank()
 {
     this->shape.setSize(sf::Vector2f(50.f,50.f));
 	this->shape.setFillColor(sf::Color::Blue);
+    this->collisionShape.setRadius(25.f);
+    this->collisionShape.setOrigin(sf::Vector2f(25.f,25.f));
 
 	this->shape.setOrigin(sf::Vector2f(25.f,25.f));
     this->shape.setPosition(75.f, 400.f);
@@ -15,9 +17,28 @@ Tank::~Tank()
 {
 }
 
-sf::RectangleShape &Tank::getShape()
+sf::RectangleShape Tank::getShape()
 {
     return this->shape;
+}
+
+sf::CircleShape Tank::getCollisionShape()
+{
+    return this->collisionShape;
+}
+
+
+
+
+
+sf::Vector2f Tank::getPreviousPosition()
+{
+    return this->previousPosition;
+}
+
+void Tank::setPosition(const sf::Vector2f &position)
+{
+    this->shape.setPosition(position);
 }
 
 void Tank::render(sf::RenderTarget *target)
@@ -36,6 +57,8 @@ void Tank::update(const float &dt)
     std::cout << "Rectangle Position: " << this->shape.getPosition().x << ", " << this->shape.getPosition().y << std::endl;
 
     std::cout << "Bullets size: " << bullets.size() << std::endl;
+
+    this->previousPosition = this->shape.getPosition();
     
     this->rotation = this->shape.getRotation(); // in degrees
     this->radians = rotation * 3.14159265f / 180.f;
@@ -44,11 +67,17 @@ void Tank::update(const float &dt)
 
     if (sf::Keyboard::isKeyPressed(this->controller.getUp()))
     {
-        this->shape.move(direction * speed * dt);
+        
+        this->forward = 1.f;
+
+        this->shape.move(forward * direction * speed * dt);
     }
     if (sf::Keyboard::isKeyPressed(this->controller.getDown()))
     {
-        this->shape.move(-direction * speed * dt);
+
+        
+        this->forward = -1.f;
+        this->shape.move(forward * direction * speed * dt);
     }
     if (sf::Keyboard::isKeyPressed(this->controller.getLeft()))
     {
@@ -71,4 +100,8 @@ void Tank::update(const float &dt)
     {
         bullet.update(dt);
     }
+
+    this->collisionShape.setPosition(this->shape.getPosition());
+
+    // this->forward = 0;
 }

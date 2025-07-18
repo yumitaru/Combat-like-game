@@ -21,6 +21,8 @@ add_executable(Combat-like-game src/main.cpp
         src/Graphics/Tank.hpp
         src/Controller/TankController.cpp
         src/Controller/TankController.hpp
+        src/Controller/WallCollision.cpp
+        src/Controller/WallCollision.hpp
         src/Graphics/Bullet.cpp
         src/Graphics/Bullet.hpp
         src/Graphics/Map.cpp
