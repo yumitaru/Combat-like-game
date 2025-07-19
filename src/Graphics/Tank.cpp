@@ -41,6 +41,16 @@ void Tank::setPosition(const sf::Vector2f &position)
     this->shape.setPosition(position);
 }
 
+std::vector<Bullet> Tank::getBullets()
+{
+    return this->bullets;
+}
+
+void Tank::setBullets(const std::vector<Bullet> &bullets)
+{
+    this->bullets = bullets;
+}
+
 void Tank::render(sf::RenderTarget *target)
 {
     target->draw(this->shape);
@@ -99,6 +109,12 @@ void Tank::update(const float &dt)
     for (auto &bullet : bullets)
     {
         bullet.update(dt);
+        if (bullet.getPosition().x < 0 || bullet.getPosition().x > WIDTH || bullet.getPosition().y < 0 || bullet.getPosition().y > HEIGHT)
+        {
+            // Remove bullet if it goes out of bounds
+            bullet = bullets.back();
+            bullets.pop_back();
+        }
     }
 
     this->collisionShape.setPosition(this->shape.getPosition());

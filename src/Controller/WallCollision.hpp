@@ -15,6 +15,9 @@ public:
     bool checkCollision(Tank &tank, Map &walls);
     void update(const float &dt, Tank&tank, Map &walls);
 
+    void checkTankCollision(Tank &tank, Map &walls);
+    void checkBulletCollision(Tank &tank, Map &walls);
+
 };
 
 

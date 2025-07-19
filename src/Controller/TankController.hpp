@@ -1,6 +1,9 @@
 #ifndef TANKCONTROLLER_HPP
 #define TANKCONTROLLER_HPP
 
+#define WIDTH 1000
+#define HEIGHT 800
+
 #include "SFML/Graphics.hpp"
 #include <iostream>
 class TankController {

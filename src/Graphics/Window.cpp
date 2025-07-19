@@ -5,7 +5,7 @@
 #include "Window.hpp"
 
 Window::Window() {
-    this->window = std::make_unique<sf::RenderWindow>(sf::VideoMode(1000, 800), "Combat");
+    this->window = std::make_unique<sf::RenderWindow>(sf::VideoMode(WIDTH, HEIGHT), "Combat");
     window->setFramerateLimit(60);
 }
 

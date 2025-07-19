@@ -26,6 +26,9 @@ public:
     sf::Vector2f getPreviousPosition();
     void setPosition(const sf::Vector2f &position);
 
+    std::vector<Bullet> getBullets();
+    void setBullets(const std::vector<Bullet> &bullets);
+
 
     void render(sf::RenderTarget *target = nullptr);
     void update(const float &dt);
