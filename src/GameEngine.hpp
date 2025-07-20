@@ -25,8 +25,7 @@ public:
 
     void TransitionTo(State *state);
 
-    void RequestA();
-    void RequestB();
+
     void updateDt();
     void update();
     void render();

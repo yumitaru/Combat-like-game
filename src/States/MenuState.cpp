@@ -4,15 +4,12 @@
 
 #include "MenuState.hpp"
 
-void MenuState::DoWorkA() {
-    std::cout << "Doing work A" << std::endl;
-}
-
-void MenuState::DoWorkB() {
-    std::cout << "Doing work B" << std::endl;
-}
 
 void MenuState::update(const float &dt) {
+}
+
+void MenuState::startState()
+{
 }
 
 void MenuState::endState() {

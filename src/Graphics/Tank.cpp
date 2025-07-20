@@ -71,7 +71,12 @@ void Tank::update(const float &dt)
     this->previousPosition = this->shape.getPosition();
     
     this->rotation = this->shape.getRotation(); // in degrees
+    if(this->controller.getKeys() == 1)
+    {
+        this->rotation = this->rotation + 180.f; // Invert rotation for player 2
+    }
     this->radians = rotation * 3.14159265f / 180.f;
+
 
     this->direction = {std::cos(radians), std::sin(radians)};
 
@@ -120,4 +125,9 @@ void Tank::update(const float &dt)
     this->collisionShape.setPosition(this->shape.getPosition());
 
     // this->forward = 0;
+}
+
+void Tank::setKeys(int i)
+{
+    this->controller.setKeys(i);
 }

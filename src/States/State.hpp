@@ -21,9 +21,9 @@ class State {
     const bool& getQuit() const;
     bool& setQuit(bool q);
 
-    virtual void DoWorkA() = 0;
-    virtual void DoWorkB() = 0;
+
     virtual void update(const float & dt) = 0;
+    virtual void startState() = 0;
     virtual void endState() = 0;
     virtual void render(sf::RenderTarget *target = nullptr) = 0;
 

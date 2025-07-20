@@ -17,6 +17,8 @@ class Tank {
     sf::Clock bulletCooldown;
     sf::Vector2f previousPosition;
     float forward = 0.f;
+
+    int keys;
 public:
     Tank();
     ~Tank();
@@ -32,6 +34,8 @@ public:
 
     void render(sf::RenderTarget *target = nullptr);
     void update(const float &dt);
+
+    void setKeys(int i);
 
 };
 

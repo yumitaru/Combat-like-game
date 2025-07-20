@@ -16,6 +16,7 @@ void WallCollision::update(const float &dt, Tank &tank, Map &walls)
 
     this->checkTankCollision(tank, walls);
     this->checkBulletCollision(tank, walls);
+    
 }
 
 void WallCollision::checkTankCollision(Tank &tank, Map &walls)
@@ -81,4 +82,46 @@ void WallCollision::checkBulletCollision(Tank &tank, Map &walls)
     }
 
     tank.setBullets(bullets); 
+}
+
+void WallCollision::checkTankBulletCollision(Tank &tank, Tank &tank2)
+{
+    std::vector<Bullet> bullets = tank.getBullets();
+    std::vector<Bullet> bullets2 = tank2.getBullets();
+
+     for(auto &bullet : bullets)
+    {
+        sf::FloatRect bulletBounds = bullet.getShape().getGlobalBounds();
+
+        if(bulletBounds.intersects(tank2.getShape().getGlobalBounds()))
+        {
+            
+
+            bullet = bullets.back(); 
+            bullets.pop_back(); 
+
+
+            std::cout << "Bullet hit tank!" << std::endl;
+        }
+    }
+
+    tank.setBullets(bullets);
+
+    for(auto &bullet : bullets2)
+    {
+        sf::FloatRect bulletBounds = bullet.getShape().getGlobalBounds();
+
+        if(bulletBounds.intersects(tank.getShape().getGlobalBounds()))
+        {
+            
+
+            bullet = bullets2.back(); 
+            bullets2.pop_back(); 
+
+
+            std::cout << "Bullet hit tank!" << std::endl;
+        }
+    }
+
+    tank2.setBullets(bullets2);
 }

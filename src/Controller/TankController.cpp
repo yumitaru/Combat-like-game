@@ -2,6 +2,8 @@
 
 void TankController::setKeys(int i)
 {
+    this->keys = i;
+
     switch (i) {
         case 0:
             Up = sf::Keyboard::W;
@@ -20,4 +22,9 @@ void TankController::setKeys(int i)
         default:
             break;
     }
+}
+
+int TankController::getKeys() const
+{
+    return this->keys;
 }

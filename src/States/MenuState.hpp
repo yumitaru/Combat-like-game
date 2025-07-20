@@ -10,9 +10,9 @@
 class MenuState: public State {
 
 public:
-    virtual void DoWorkA() override;
-    virtual void DoWorkB() override;
+
     virtual void update(const float & dt) override;
+    virtual void startState() override;
     virtual void endState() override;
     virtual void render(sf::RenderTarget *target = nullptr) override;
 

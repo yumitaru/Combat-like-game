@@ -7,6 +7,8 @@
 #include "SFML/Graphics.hpp"
 #include <iostream>
 class TankController {
+    int keys;
+
     sf::Keyboard::Key Up;
 	sf::Keyboard::Key Down;
 	sf::Keyboard::Key Left;
@@ -18,6 +20,7 @@ public:
     ~TankController() = default;
 
     void setKeys(int i);
+    int getKeys() const;
 
     sf::Keyboard::Key getUp() const { return Up; }
     sf::Keyboard::Key getDown() const { return Down; }

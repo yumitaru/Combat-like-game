@@ -10,12 +10,13 @@
 class GameState: public State {
 
     Tank player;
+    Tank player2;
     Map map;
     WallCollision wallCollision;
 
 public:
-    virtual void DoWorkA() override;
-    virtual void DoWorkB() override;
+
+    virtual void startState() override;
     virtual void update(const float & dt) override;
     virtual void endState() override;
     virtual void render(sf::RenderTarget *target = nullptr) override;

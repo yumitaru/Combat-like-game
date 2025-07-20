@@ -6,7 +6,6 @@ int main()
 
     GameEngine eng = GameEngine(new GameState());
 
-    eng.RequestA();
     eng.run();
     return 0;
 

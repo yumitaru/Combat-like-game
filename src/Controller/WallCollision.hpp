@@ -17,6 +17,7 @@ public:
 
     void checkTankCollision(Tank &tank, Map &walls);
     void checkBulletCollision(Tank &tank, Map &walls);
+    void checkTankBulletCollision(Tank &tank, Tank &tank2);
 
 };
 

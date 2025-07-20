@@ -8,6 +8,7 @@
 
 GameEngine::GameEngine(State *state): state_(nullptr) {
     TransitionTo(state);
+    
 }
 
 GameEngine::~GameEngine()  {
@@ -19,15 +20,10 @@ void GameEngine::TransitionTo(State *state)  {
         delete this->state_;
     this->state_ = state;
     this->state_->set_engine(this);
+    this->state_->startState();
 }
 
-void GameEngine::RequestA()  {
-    state_->DoWorkA();
-}
 
-void GameEngine::RequestB() {
-    state_->DoWorkB();
-}
 
 void GameEngine::updateDt()
 {
